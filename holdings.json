@@ -2,12 +2,19 @@
   "title": "League Investment Tracker",
   "bought": "Sep 30, 2026",
   "holdings": [
-    { "name": "ALM",  "symbol": "ALM",  "cost": 38.20, "shares": 2 },
-    { "name": "MOLY", "symbol": "MOLY.TO", "cost": 46.11, "shares": 29 },
-    { "name": "SCD",  "symbol": "SCD.V",  "cost": 46.99, "shares": 254 },
-    { "name": "PLSR", "symbol": "PLSR.V", "cost": 44.40, "shares": 37 },
-    { "name": "MOON", "symbol": "MOON.V", "cost": 43.44, "shares": 6 },
-    { "name": "HURA", "symbol": "HURA.TO", "cost": 46.88, "shares": 1 },
-    { "name": "ANDC", "symbol": "ANDC.V", "cost": 52.20, "shares": 45 }
+    { "name": "ALM", "symbol": "ALM.V", "cost": 38.20, "shares": 2,
+      "desc": "Almonty Industries: tungsten miner with operations in Portugal and Spain, developing the Sangdong mine in South Korea. Tungsten is used in defense and industrial tooling." },
+    { "name": "MOLY", "symbol": "MOLY.TO", "cost": 46.11, "shares": 29,
+      "desc": "Greenland Resources: developing the Malmbjerg molybdenum project in east-central Greenland." },
+    { "name": "SCD", "symbol": "SCD.V", "cost": 46.99, "shares": 254,
+      "desc": "Scandium Canada: developing the Crater Lake scandium project in northern Québec, plus aluminum-scandium alloys through its Scalium+ subsidiary." },
+    { "name": "PLSR", "symbol": "PLSR.V", "cost": 44.40, "shares": 37,
+      "desc": "Pulsar Helium: helium exploration company with the Topaz project in Minnesota and the Tunu project in Greenland." },
+    { "name": "MOON", "symbol": "MOON.V", "cost": 43.44, "shares": 6,
+      "desc": "Blue Moon Metals: developing copper, zinc, gold and silver projects in Norway and the US, including the Nussir project and the Blue Moon deposit in California." },
+    { "name": "HURA", "symbol": "HURA.TO", "cost": 46.88, "shares": 1,
+      "desc": "Global X Uranium Index ETF: a basket of uranium miners and physical-uranium funds. Top holdings include Cameco, Kazatomprom and Sprott Physical Uranium Trust." },
+    { "name": "ANDC", "symbol": "ANDC.V", "cost": 52.20, "shares": 45,
+      "desc": "Andina Copper (formerly Pampa Metals): exploration company focused on the Piuquenes copper-gold project in San Juan, Argentina." }
   ]
 }
