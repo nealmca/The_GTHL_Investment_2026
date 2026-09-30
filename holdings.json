@@ -2,7 +2,7 @@
   "title": "League Investment Tracker",
   "bought": "Sep 30, 2026",
   "holdings": [
-    { "name": "ALM",  "symbol": "ALM.V",  "cost": 38.20, "shares": 2 },
+    { "name": "ALM",  "symbol": "ALM",  "cost": 38.20, "shares": 2 },
     { "name": "MOLY", "symbol": "MOLY.TO", "cost": 46.11, "shares": 29 },
     { "name": "SCD",  "symbol": "SCD.V",  "cost": 46.99, "shares": 254 },
     { "name": "PLSR", "symbol": "PLSR.V", "cost": 44.40, "shares": 37 },
