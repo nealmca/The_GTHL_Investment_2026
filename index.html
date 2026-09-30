@@ -17,7 +17,9 @@ h1{font-size:22px;margin:0}.sub{color:var(--mu);font-size:14px;margin:4px 0 14px
 .top{display:flex;justify-content:space-between;align-items:baseline}.tk{font-weight:700;font-size:17px}
 .meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;font-size:13px;color:var(--mu);margin-top:6px}
 .note{font-size:13px;color:var(--mu);margin-top:14px}
-.desc{font-size:13px;color:var(--mu);margin-top:2px;max-width:46ch}
+.desc{font-size:13px;color:var(--mu);margin-top:4px;max-width:46ch}
+.desc summary{cursor:pointer;color:var(--ac);font-size:13px;width:fit-content}
+.desc p{margin:6px 0 0}
 </style></head><body><main>
 <h1 id="t">League Investment Tracker</h1>
 <div class="sub" id="s"></div>
@@ -40,7 +42,7 @@ Promise.all([j('holdings.json'),j('prices.json').catch(()=>({quotes:{}}))]).then
   rows.forEach(x=>{
     const r=x.val!=null?(x.val-x.cost)/x.cost*100:null;
     const day=x.q&&x.q.prev?(x.q.price/x.q.prev-1)*100:null;
-    h+=`<div class="row"><div class="top"><span><span class="tk">${x.name}</span><div class="desc">${x.desc||''}</div></span>
+    h+=`<div class="row"><div class="top"><span><span class="tk">${x.name}</span>${x.desc?`<details class="desc"><summary>Description</summary><p>${x.desc}</p></details>`:''}</span>
     <b class="${r==null?'':r>=0?'up':'dn'}">${r==null?'—':pc(r)}</b></div>
     <div class="meta"><span>Cost ${f(x.cost)}${x.val!=null?' · Now '+f(x.val):''}</span>
     <span>${x.q?(x.q.currency==='USD'?'US'+f(x.q.price):f(x.q.price)):'no quote'}${day!=null?` · <span class="${day>=0?'up':'dn'}">${pc(day)} today</span>`:''}</span></div></div>`;
