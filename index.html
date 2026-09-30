@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>League Investment Tracker</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📈</text></svg>">
+<style>
+:root{--bg:#f6f7f9;--card:#fff;--tx:#14171c;--mu:#6b7480;--bd:#e3e6ea;--up:#0e9f6e;--dn:#e02f3f;--ac:#2456d6}
+@media(prefers-color-scheme:dark){:root{--bg:#0d0f12;--card:#171a1f;--tx:#eef0f3;--mu:#8b94a1;--bd:#262b32;--up:#34d399;--dn:#f87171;--ac:#7aa2ff}}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:720px;margin:0 auto;padding:20px 16px 40px}
+h1{font-size:22px;margin:0}.sub{color:var(--mu);font-size:14px;margin:4px 0 14px}
+.hero{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.hero span{display:block;font-size:12px;color:var(--mu);text-transform:uppercase;letter-spacing:.04em}.hero b{font-size:20px}
+.up{color:var(--up)}.dn{color:var(--dn)}
+.list{margin-top:16px;display:grid;gap:10px}
+.row{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.top{display:flex;justify-content:space-between;align-items:baseline}.tk{font-weight:700;font-size:17px}
+.meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;font-size:13px;color:var(--mu);margin-top:6px}
+.note{font-size:13px;color:var(--mu);margin-top:14px}
+</style></head><body><main>
+<h1 id="t">League Investment Tracker</h1>
+<div class="sub" id="s"></div>
+<div id="app">Loading…</div>
+<script>
+const f=n=>'$'+n.toFixed(2), pc=n=>(n>=0?'+':'')+n.toFixed(1)+'%';
+const j=u=>fetch(u+'?t='+Date.now()).then(r=>r.json());
+Promise.all([j('holdings.json'),j('prices.json').catch(()=>({quotes:{}}))]).then(([H,P])=>{
+  document.getElementById('t').textContent=H.title;
+  document.getElementById('s').textContent='Bought '+H.bought+' · values in CAD';
+  const rows=H.holdings.map(h=>{
+    const q=P.quotes[h.symbol],val=q&&h.shares?q.price*h.shares:null;
+    return {...h,q,val};
+  });
+  const cost=rows.reduce((a,h)=>a+h.cost,0), all=rows.every(h=>h.val!=null);
+  const val=rows.reduce((a,h)=>a+(h.val||0),0), g=val-cost, cls=g>=0?'up':'dn';
+  let h=`<div class="hero"><div><span>Invested</span><b>${f(cost)}</b></div>
+  <div><span>Value</span><b>${all?f(val):'—'}</b></div>
+  <div><span>Return</span><b class="${all?cls:''}">${all?pc(g/cost*100):'—'}</b></div></div><div class="list">`;
+  rows.forEach(x=>{
+    const r=x.val!=null?(x.val-x.cost)/x.cost*100:null;
+    const day=x.q&&x.q.prev?(x.q.price/x.q.prev-1)*100:null;
+    h+=`<div class="row"><div class="top"><span class="tk">${x.name}</span>
+    <b class="${r==null?'':r>=0?'up':'dn'}">${r==null?'—':pc(r)}</b></div>
+    <div class="meta"><span>Cost ${f(x.cost)}${x.val!=null?' · Now '+f(x.val):''}</span>
+    <span>${x.q?f(x.q.price)+(x.q.currency&&x.q.currency!=='CAD'?' '+x.q.currency:''):'no quote'}${day!=null?` · <span class="${day>=0?'up':'dn'}">${pc(day)} today</span>`:''}</span></div></div>`;
+  });
+  h+='</div>';
+  if(!all)h+='<div class="note">Add share counts in holdings.json to show total value and return.</div>';
+  if(P.updated)h+=`<div class="note">Prices updated ${new Date(P.updated).toLocaleString()} · quotes may be delayed</div>`;
+  document.getElementById('app').innerHTML=h;
+}).catch(()=>document.getElementById('app').textContent='Could not load data.');
+</script></main></body></html>
