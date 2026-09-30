@@ -16,7 +16,16 @@ for h in H:
         }
     except Exception as e:
         print("failed", sym, e)
-
+try:
+    url = "https://query1.finance.yahoo.com/v8/finance/chart/USDCAD=X?interval=1d&range=5d"
+    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    out["usdcad"] = json.load(urllib.request.urlopen(req, timeout=20))["chart"]["result"][0]["meta"]["regularMarketPrice"]
+except Exception as e:
+    print("fx failed", e)
+    try:
+        out["usdcad"] = json.load(open("prices.json")).get("usdcad")
+    except Exception:
+        pass
 # keep old quotes for any symbol that failed this run
 try:
     old = json.load(open("prices.json"))["quotes"]
