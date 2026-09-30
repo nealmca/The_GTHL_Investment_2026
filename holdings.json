@@ -8,6 +8,6 @@
     { "name": "PLSR", "symbol": "PLSR.V", "cost": 44.40, "shares": 37 },
     { "name": "MOON", "symbol": "MOON.V", "cost": 43.44, "shares": 6 },
     { "name": "HURA", "symbol": "HURA.TO", "cost": 46.88, "shares": 1 },
-    { "name": "ANDC", "symbol": "ANDC.TO", "cost": 52.20, "shares": 45 }
+    { "name": "ANDC", "symbol": "ANDC.V", "cost": 52.20, "shares": 45 }
   ]
 }
