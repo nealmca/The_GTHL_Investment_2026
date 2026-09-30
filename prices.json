@@ -1,13 +1,13 @@
 {
- "updated": "2026-09-30T14:21:46.226637+00:00",
+ "updated": "2026-09-30T14:26:06.414746+00:00",
  "quotes": {
-  "ALM.V": {
-   "price": 0.35,
-   "prev": 0.35,
-   "currency": "CAD"
+  "ALM": {
+   "price": 13.5,
+   "prev": 13.62,
+   "currency": "USD"
   },
   "MOLY.TO": {
-   "price": 1.61,
+   "price": 1.59,
    "prev": 1.7,
    "currency": "CAD"
   },
@@ -22,13 +22,18 @@
    "currency": "CAD"
   },
   "MOON.V": {
-   "price": 7.4,
+   "price": 7.38,
    "prev": 7.48,
    "currency": "CAD"
   },
   "HURA.TO": {
    "price": 46.4,
    "prev": 48.74,
+   "currency": "CAD"
+  },
+  "ALM.V": {
+   "price": 0.35,
+   "prev": 0.35,
    "currency": "CAD"
   }
  }
