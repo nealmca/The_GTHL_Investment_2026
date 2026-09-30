@@ -28,7 +28,7 @@ Promise.all([j('holdings.json'),j('prices.json').catch(()=>({quotes:{}}))]).then
   document.getElementById('t').textContent=H.title;
   document.getElementById('s').textContent='Bought '+H.bought+' · values in CAD';
   const rows=H.holdings.map(h=>{
-    const q=P.quotes[h.symbol],val=q&&h.shares?q.price*h.shares:null;
+    const q=P.quotes[h.symbol],fx=q&&q.currency==='USD'?(P.usdcad||null):1,val=q&&h.shares&&fx?q.price*fx*h.shares:null;
     return {...h,q,val};
   });
   const cost=rows.reduce((a,h)=>a+h.cost,0), all=rows.every(h=>h.val!=null);
@@ -42,7 +42,7 @@ Promise.all([j('holdings.json'),j('prices.json').catch(()=>({quotes:{}}))]).then
     h+=`<div class="row"><div class="top"><span class="tk">${x.name}</span>
     <b class="${r==null?'':r>=0?'up':'dn'}">${r==null?'—':pc(r)}</b></div>
     <div class="meta"><span>Cost ${f(x.cost)}${x.val!=null?' · Now '+f(x.val):''}</span>
-    <span>${x.q?f(x.q.price)+(x.q.currency&&x.q.currency!=='CAD'?' '+x.q.currency:''):'no quote'}${day!=null?` · <span class="${day>=0?'up':'dn'}">${pc(day)} today</span>`:''}</span></div></div>`;
+    <span>${x.q?(x.q.currency==='USD'?'US'+f(x.q.price):f(x.q.price)):'no quote'}${day!=null?` · <span class="${day>=0?'up':'dn'}">${pc(day)} today</span>`:''}</span></div></div>`;
   });
   h+='</div>';
   if(!all)h+='<div class="note">Add share counts in holdings.json to show total value and return.</div>';
