@@ -2,7 +2,7 @@
   "title": "League Investment Tracker",
   "bought": "Sep 30, 2026",
   "holdings": [
-    { "name": "ALM", "symbol": "ALM.V", "cost": 38.20, "shares": 2,
+    { "name": "ALM", "symbol": "ALM", "cost": 38.20, "shares": 2,
       "desc": "Almonty Industries: tungsten miner with operations in Portugal and Spain, developing the Sangdong mine in South Korea. Tungsten is used in defense and industrial tooling." },
     { "name": "MOLY", "symbol": "MOLY.TO", "cost": 46.11, "shares": 29,
       "desc": "Greenland Resources: developing the Malmbjerg molybdenum project in east-central Greenland." },
