@@ -1,8 +1,8 @@
 {
- "updated": "2026-10-09T17:50:18.037805+00:00",
+ "updated": "2026-10-09T18:05:59.564487+00:00",
  "quotes": {
   "ALM": {
-   "price": 11.725,
+   "price": 11.785,
    "prev": 13.4,
    "currency": "USD"
   },
@@ -17,17 +17,17 @@
    "currency": "CAD"
   },
   "PLSR.V": {
-   "price": 1.02,
+   "price": 1.03,
    "prev": 1.23,
    "currency": "CAD"
   },
   "MOON.V": {
-   "price": 6.98,
+   "price": 7.05,
    "prev": 6.95,
    "currency": "CAD"
   },
   "HURA.TO": {
-   "price": 45.71,
+   "price": 45.85,
    "prev": 46.3,
    "currency": "CAD"
   },
@@ -42,5 +42,5 @@
    "currency": "CAD"
   }
  },
- "usdcad": 1.427
+ "usdcad": 1.4268
 }
