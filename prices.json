@@ -1,38 +1,38 @@
 {
- "updated": "2026-10-27T22:27:20.592008+00:00",
+ "updated": "2026-10-28T13:43:50.159636+00:00",
  "quotes": {
   "ALM": {
-   "price": 9.56,
-   "prev": 8.9,
+   "price": 9.63,
+   "prev": 9.34,
    "currency": "USD"
   },
   "MOLY.TO": {
-   "price": 1.4,
-   "prev": 1.41,
+   "price": 1.36,
+   "prev": 1.43,
    "currency": "CAD"
   },
   "SCD.V": {
    "price": 0.145,
-   "prev": 0.162,
+   "prev": 0.165,
    "currency": "CAD"
   },
   "PLSR.V": {
    "price": 1.5,
-   "prev": 1.26,
+   "prev": 1.27,
    "currency": "CAD"
   },
   "MOON.V": {
-   "price": 6.1,
-   "prev": 6.05,
+   "price": 6.18,
+   "prev": 6.03,
    "currency": "CAD"
   },
   "HURA.TO": {
-   "price": 42.44,
-   "prev": 41.51,
+   "price": 43.0,
+   "prev": 41.9,
    "currency": "CAD"
   },
   "ANDC.V": {
-   "price": 0.96,
+   "price": 0.97,
    "prev": 1.04,
    "currency": "CAD"
   },
@@ -42,5 +42,5 @@
    "currency": "CAD"
   }
  },
- "usdcad": 1.4048
+ "usdcad": 1.4053
 }
